@@ -4,7 +4,7 @@ class TituloDeLaApp extends Component {
     state = {  }
     render() { 
         return ( 
-            <h1 className="text-center">Bienvenido al sistema de administradores de Hypechat!</h1>
+            <h1 className="text-center font-weight-bold pt-5 pb-5">HYPECHAT ADMIN WEBSITE</h1>
          );
     }
 }
