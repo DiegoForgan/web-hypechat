@@ -25,7 +25,7 @@ class FormularioLogin extends Component {
         console.log(response);
       })
       .catch(function (error) {
-        alert('Hubo un error!');
+        alert(error);
       });
     }
 
