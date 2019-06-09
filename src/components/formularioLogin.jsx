@@ -16,7 +16,7 @@ class FormularioLogin extends Component {
       this.loguearse = this.loguearse.bind(this);
     }
 
-    loguearse(){
+    /*loguearse(){
       axios.post('https://secure-plateau-18239.herokuapp.com/login', {
         email: this.state.email,
         psw: this.state.psw
@@ -25,7 +25,17 @@ class FormularioLogin extends Component {
         console.log(response);
       })
       .catch(function (error) {
-        alert(error);
+        alert('Hubo un error!');
+      });
+    }*/
+
+    loguearse(){
+      axios.get('https://secure-plateau-18239.herokuapp.com/hello/prueba')
+      .then(function (response) {
+        alert(response);
+      })
+      .catch(function (error) {
+        alert('Hubo un error!');
       });
     }
 
