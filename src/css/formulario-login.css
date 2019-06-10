@@ -4,4 +4,7 @@
     padding: 15px;
     margin: auto;
     height: 100%;
+    box-sizing: border-box;
+    background-color: gainsboro;
 }
+

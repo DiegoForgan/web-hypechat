@@ -8,7 +8,7 @@ class TituloDeLaApp extends Component {
         return (
             <div className="titulo-pagina-web">
                 <img className="logo-hypechat" src={require('../img/logo.png')} alt="Logo de Hypechat"></img> 
-                <h2>Admin Website</h2>
+                <h2>BACKOFFICE</h2>
             </div>
          );
     }

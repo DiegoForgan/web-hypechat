@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import '../css/formulario-login.css'
+import '../css/formulario-login.css';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import axios from 'axios';
+import TituloDeLaApp from './titulo';
+import { Link } from 'react-router-dom';
 
 
 class FormularioLogin extends Component {
@@ -37,22 +39,25 @@ class FormularioLogin extends Component {
 
     render() { 
         return (
-          <Form className="formulario-login"> 
-            <FormGroup>
-              <Label className="font-weight-bold">Email</Label>
-              <Input name="email" type="email" value={this.state.email}  
-              placeholder="Ingrese su email..." 
-              onChange={this.handleChange}></Input>
-            </FormGroup>
-            <FormGroup>
-              <Label className="font-weight-bold">Contraseña</Label>
-              <Input name="psw" type="password" value={this.state.psw}
-               placeholder="Ingrese su contraseña..."
-               onChange={this.handleChange}></Input>
-            </FormGroup>
-            <Button className="btn-block mt-3" block size="lg" color="success" onClick={this.loguearse}>Ingresar</Button>
-            <Button block size="lg" color="warning">Registrarse</Button>
-          </Form>
+          <React.Fragment>
+            <TituloDeLaApp/>
+            <Form className="formulario-login"> 
+              <FormGroup>
+                <Label className="font-weight-bold">Email</Label>
+                <Input name="email" type="email" value={this.state.email}  
+                placeholder="Ingrese su email..." 
+                onChange={this.handleChange}></Input>
+              </FormGroup>
+              <FormGroup>
+                <Label className="font-weight-bold">Contraseña</Label>
+                <Input name="psw" type="password" value={this.state.psw}
+                placeholder="Ingrese su contraseña..."
+                onChange={this.handleChange}></Input>
+              </FormGroup>
+              <Button className="btn-block mt-3" block size="lg" color="success" onClick={this.loguearse}>Ingresar</Button>
+              <Button  tag={Link} to="/registro" className="btn-block mt-3" block size="lg" color="warning">Registrarse</Button>
+            </Form>
+          </React.Fragment>
           );
     }
 }
