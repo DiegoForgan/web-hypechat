@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import BarraNavegacion from './barra-navegacion';
+import '../css/contenedor-perfil.css';
+import { Form } from 'reactstrap';
 
 class MiPerfil extends Component {
     state = {  }
@@ -7,7 +9,12 @@ class MiPerfil extends Component {
         return (
             <React.Fragment>
                 <BarraNavegacion/>
-                <h1>Mi Perfil Page</h1>
+                <div className="contenedor-perfil">
+                <img src="" alt="PROFILE PHOTO"></img>
+                <Form>
+
+                </Form>
+                </div>
             </React.Fragment>
           );
     }

@@ -31,26 +31,34 @@ class BarraNavegacion extends Component {
     render() {
         return (
           <div>
-            <Navbar color="light" light expand="md">
+            <Navbar color="dark" light expand="md">
               <NavbarBrand href="/home">
                 <img className="pr-1" height="40" width="45" src={require('../img/logo.png')} alt="Logo de Hypechat"/>
-                Hypechat Backoffice
+                <font color="white">Hypechat Backoffice</font>
               </NavbarBrand>
               <NavbarToggler onClick={this.toggle} />
               <Collapse isOpen={this.state.isOpen} navbar>
                 <Nav className="ml-auto" navbar>
                   <NavItem>
-                    <NavLink tag={Link} to="/home">Home</NavLink>
+                    <NavLink tag={Link} to="/home">
+                      <font color="white">Home</font>
+                    </NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink tag={Link} to="/organizaciones">Mis Organizaciones</NavLink>
+                    <NavLink tag={Link} to="/organizaciones">
+                        <font color="white">Mis Organizaciones</font>
+                      </NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink tag={Link} to="/reportes">Reportes</NavLink>
+                    <NavLink tag={Link} to="/reportes">
+                    <font color="white">Reportes</font>
+                    </NavLink>
                   </NavItem>
                   <UncontrolledDropdown nav inNavbar>
                     <DropdownToggle nav caret>
+                    <font color="white">
                       Opciones
+                    </font>
                     </DropdownToggle>
                     <DropdownMenu right>
                       <DropdownItem tag={Link} to="/miperfil">

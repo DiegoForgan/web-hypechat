@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../css/formulario-login.css';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import axios from 'axios';
+//import axios from 'axios';
 import TituloDeLaApp from './titulo';
 import { Link } from 'react-router-dom';
 
@@ -19,7 +19,7 @@ class FormularioLogin extends Component {
     }
 
     loguearse(){
-      axios.post('https://secure-plateau-18239.herokuapp.com/login', {
+      /*axios.post('https://secure-plateau-18239.herokuapp.com/login', {
         email: this.state.email,
         psw: this.state.psw
       })
@@ -28,7 +28,10 @@ class FormularioLogin extends Component {
       })
       .catch(function (error) {
         alert('Hubo un error!');
-      });
+      });*/
+      if ((this.state.email === "capi@marvel.com")&&(this.state.psw === "12345678")) {
+          alert('Entraste Capitan!');
+      }
     }
 
     handleChange(e) {
