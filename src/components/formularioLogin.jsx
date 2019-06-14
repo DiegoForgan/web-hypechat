@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import '../css/formulario-login.css';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-//import axios from 'axios';
+import axios from 'axios';
 import TituloDeLaApp from './titulo';
 import { Link } from 'react-router-dom';
+import ModalErrorLogin from './modal-error-login';
 
 
 class FormularioLogin extends Component {
@@ -12,26 +13,29 @@ class FormularioLogin extends Component {
       super(props);
       this.state = {
         email: '',
-        psw: ''
+        psw: '',
+        mostrarModal: false
       };
       this.handleChange = this.handleChange.bind(this);
       this.loguearse = this.loguearse.bind(this);
     }
 
     loguearse(){
-      /*axios.post('https://secure-plateau-18239.herokuapp.com/login', {
+      axios.post('https://secure-plateau-18239.herokuapp.com/login', {
         email: this.state.email,
         psw: this.state.psw
       })
-      .then(function (response) {
+      //Recordar que definiendo las funciones asi puedo usar el THIS.SETSTATE bien
+      .then((response) => {
         console.log(response);
+        console.log(this.state)
+        alert("LOGIN EXITOSO!");
       })
-      .catch(function (error) {
-        alert('Hubo un error!');
-      });*/
-      if ((this.state.email === "capi@marvel.com")&&(this.state.psw === "12345678")) {
-          alert('Entraste Capitan!');
-      }
+      .catch((error) => {
+        console.log(error);
+        console.log(this.state);
+        this.setState({mostrarModal: true});
+      });
     }
 
     handleChange(e) {
@@ -44,6 +48,7 @@ class FormularioLogin extends Component {
         return (
           <React.Fragment>
             <TituloDeLaApp/>
+            {this.state.mostrarModal && (<ModalErrorLogin/>)}
             <Form className="formulario-login"> 
               <FormGroup>
                 <Label className="font-weight-bold">Email</Label>
