@@ -7,7 +7,8 @@ class Home extends Component {
         return (
             <React.Fragment>
                 <BarraNavegcion/>
-                <h1>Home Page</h1>
+                <h1>Bienvenido al sistema de BackOffice de Hypechat</h1>
+                <h2>A continuacion se muestran las opciones disponibles...</h2>
             </React.Fragment>
         );
     }

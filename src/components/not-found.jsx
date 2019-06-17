@@ -9,5 +9,6 @@ export default () =>
   <BarraNavegacion/>
   <div className="NotFound">
     <h3>Lo lamentamos, el sitio que intenta acceder no existe!</h3>
+    <img src={require('../img/link_roto.jpg')} alt="Link Roto"></img>
   </div>
 </React.Fragment>;

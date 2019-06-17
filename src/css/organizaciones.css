@@ -1,0 +1,22 @@
+.organizaciones{
+    width: 100%;
+    max-width: 100vw;
+    padding: 15px;
+    margin: auto;
+    height: 100%;
+    box-sizing: border-box;
+    color: orangered;
+    background-color: gainsboro;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.elementos{
+    width: 100%;
+    height: 100%;
+    align-self: center;
+    max-width: 400px;
+    max-height: 50px;
+    color: blueviolet;
+    background-color: darkseagreen;
+}
