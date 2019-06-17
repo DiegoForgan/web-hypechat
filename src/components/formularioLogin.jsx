@@ -28,8 +28,8 @@ class FormularioLogin extends Component {
       //Recordar que definiendo las funciones asi puedo usar el THIS.SETSTATE bien
       .then((response) => {
         console.log(response);
-        console.log(this.state)
-        alert("LOGIN EXITOSO!");
+        console.log(this.state);
+        this.props.history.push('/home');
       })
       .catch((error) => {
         console.log(error);
@@ -42,6 +42,10 @@ class FormularioLogin extends Component {
       this.setState({
           [e.target.name] : e.target.value
       });
+    }
+
+    fomularioValido(){
+      return this.state.email.length > 0 && this.state.psw.length >= 8;
     }
 
     render() { 
@@ -62,7 +66,7 @@ class FormularioLogin extends Component {
                 placeholder="Ingrese su contraseña..."
                 onChange={this.handleChange}></Input>
               </FormGroup>
-              <Button className="btn-block mt-3" block size="lg" color="success" onClick={this.loguearse}>Ingresar</Button>
+              <Button className="btn-block mt-3" block size="lg" color="success" onClick={this.loguearse} disabled={!this.fomularioValido()}>Ingresar</Button>
               <Button  tag={Link} to="/registro" className="btn-block mt-3" block size="lg" color="warning">Registrarse</Button>
             </Form>
           </React.Fragment>

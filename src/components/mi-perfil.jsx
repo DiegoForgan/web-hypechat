@@ -10,7 +10,7 @@ class MiPerfil extends Component {
             <React.Fragment>
                 <BarraNavegacion/>
                 <div className="contenedor-perfil">
-                <img src="" alt="PROFILE PHOTO"></img>
+                <img src="" alt="PROFILE PIC"></img>
                 <Form>
 
                 </Form>
