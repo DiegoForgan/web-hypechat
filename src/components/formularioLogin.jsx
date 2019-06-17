@@ -5,6 +5,7 @@ import axios from 'axios';
 import TituloDeLaApp from './titulo';
 import { Link } from 'react-router-dom';
 import ModalErrorLogin from './modal-error-login';
+import ls from 'local-storage';
 
 
 class FormularioLogin extends Component {
@@ -27,8 +28,7 @@ class FormularioLogin extends Component {
       })
       //Recordar que definiendo las funciones asi puedo usar el THIS.SETSTATE bien
       .then((response) => {
-        console.log(response);
-        console.log(this.state);
+        this.gardarDatosDeUsuario(response.data);
         this.props.history.push('/home');
       })
       .catch((error) => {
@@ -36,6 +36,14 @@ class FormularioLogin extends Component {
         console.log(this.state);
         this.setState({mostrarModal: true});
       });
+    }
+
+    gardarDatosDeUsuario(data){
+      console.log(data);
+      ls("email",data.email);
+      ls("nombre",data.name);
+      ls("apodo",data.nickname);
+      ls("token",data.token);
     }
 
     handleChange(e) {
@@ -53,7 +61,7 @@ class FormularioLogin extends Component {
           <React.Fragment>
             <TituloDeLaApp/>
             {this.state.mostrarModal && (<ModalErrorLogin/>)}
-            <Form className="formulario-login"> 
+            <Form className="formulario-login" onSubmit={this.loguearse}> 
               <FormGroup>
                 <Label className="font-weight-bold">Email</Label>
                 <Input name="email" type="email" value={this.state.email}  

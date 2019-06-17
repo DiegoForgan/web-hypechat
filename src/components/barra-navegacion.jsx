@@ -12,6 +12,7 @@ import {
     DropdownToggle,
     DropdownMenu,
     DropdownItem } from 'reactstrap';
+import ls from 'local-storage';
 
 class BarraNavegacion extends Component {
     constructor(props) {
@@ -26,6 +27,10 @@ class BarraNavegacion extends Component {
         this.setState({
           isOpen: !this.state.isOpen
         });
+      }
+
+      borrarDatosLocales(){
+        ls.clear();
       }
 
     render() {
@@ -68,7 +73,7 @@ class BarraNavegacion extends Component {
                         Configuracion
                       </DropdownItem>
                       <DropdownItem divider />
-                      <DropdownItem tag={Link} to="/">
+                      <DropdownItem tag={Link} to="/" onClick={this.borrarDatosLocales}>
                         Log Out 
                       </DropdownItem>
                     </DropdownMenu>

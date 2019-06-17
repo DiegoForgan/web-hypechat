@@ -1,11 +1,13 @@
 .titulo-pagina-web{
     width: 100%;
-    max-width: 330px;
+    max-width: 500px;
     padding: 15px;
     margin: auto;
     height: 100%;
     text-align: center;
-    background-color: gainsboro;
+    background-color: #d7f7f5;
+    color: #2a6171;
+    font-weight: bolder;
 }
 
 .logo-hypechat{

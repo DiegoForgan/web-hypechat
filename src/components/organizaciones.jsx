@@ -4,6 +4,7 @@ import { ListGroup, ListGroupItem } from 'reactstrap';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import '../css/organizaciones.css'
+import ls from 'local-storage';
 
 class Organizaciones extends Component {
     constructor(props){
@@ -14,7 +15,8 @@ class Organizaciones extends Component {
     }
 
     componentDidMount(){
-        axios.get('https://secure-plateau-18239.herokuapp.com/organizations/test@1.com')
+        const URL = 'https://secure-plateau-18239.herokuapp.com/organizations/' + ls("email");
+        axios.get(URL)
         .then((response) => {
             console.log(response);
             this.setState({organizaciones: response.data.organizations});

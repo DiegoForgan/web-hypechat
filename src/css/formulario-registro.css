@@ -1,9 +1,14 @@
 .formulario-registro{
     width: 100%;
-    max-width: 330px;
+    max-width: 500px;
     padding: 15px;
     margin: auto;
     height: 100%;
     box-sizing: border-box;
-    background-color: gainsboro;
+    background-color: #d7f7f5;
+    color: #f34573;
+}
+
+.sugerencias{
+    color: #2a6171;
 }

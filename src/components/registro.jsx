@@ -70,7 +70,7 @@ class Registro extends Component {
                     <FormGroup>
                         <Label className="font-weight-bold">Contraseña</Label>
                         <Input name="psw" type="password" placeholder="Ingrese una contraseña..." value={this.state.psw} onChange={this.handleChange}/>
-                        <FormText>La contraseña debe tener un minimo de 8 caracteres!</FormText>
+                        <FormText className="sugerencias">La contraseña debe tener un minimo de 8 caracteres!</FormText>
                     </FormGroup>
                     <FormGroup>
                         <Label className="font-weight-bold">Nombre</Label>
@@ -95,7 +95,7 @@ class Registro extends Component {
                     <FormGroup>
                         <Label className="font-weight-bold">Respuesta</Label>
                         <Input name="resp2" type="text" placeholder="Escriba la respuesta..." value={this.state.resp2} onChange={this.handleChange}/>
-                        <FormText className="font-weight-bold">RECUERDE AMBAS RESPUESTAS YA QUE SERVIRAN PARA REESTABLECER SU CONTRASEÑA</FormText>
+                        <FormText className="sugerencias">RECUERDE AMBAS RESPUESTAS YA QUE SERVIRAN PARA REESTABLECER SU CONTRASEÑA</FormText>
                     </FormGroup>
                     <Button className="btn-block mt-3" block size="lg" color="warning" onClick={this.registrar} disabled={!this.formularioValido()}>Registrarse</Button>
                 </Form>

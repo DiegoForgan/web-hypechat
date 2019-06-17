@@ -4,8 +4,14 @@
     margin: auto;
     height: 100%;
     padding-top: 50px;
+    background-color: #d7f7f5;
+    color: #2a6171;
 }
-
+h3{
+    color: #f34573;
+    font-weight: bold;
+    text-align: center;
+}
 .center {
     display: block;
     margin-left: auto;
