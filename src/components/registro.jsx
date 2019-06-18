@@ -62,7 +62,8 @@ class Registro extends Component {
         return (
             <React.Fragment>
                 <TituloDeLaApp/>
-                <Form className="formulario-registro">
+                <div className="formulario-registro">
+                <Form className="contenedor-formulario">
                     <FormGroup>
                         <Label className="font-weight-bold">Email</Label>
                         <Input name="email" type="email" placeholder="Escriba un email valido..." value={this.state.email} onChange={this.handleChange}/>
@@ -99,6 +100,7 @@ class Registro extends Component {
                     </FormGroup>
                     <Button className="btn-block mt-3" block size="lg" color="warning" onClick={this.registrar} disabled={!this.formularioValido()}>Registrarse</Button>
                 </Form>
+                </div>
             </React.Fragment>
         );
     }

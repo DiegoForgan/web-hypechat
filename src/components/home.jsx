@@ -11,32 +11,34 @@ class Home extends Component {
             <React.Fragment>
                 <BarraNavegcion/>
                 <div className="pantallaBienvenida">
+                <div className="titulo-home">
                 <h1>Bienvenido al BackOffice de Hypechat</h1>
                 <h2>Opciones Disponibles:</h2>
+                </div>
                 <div>
                 <CardGroup>
                 <Card className="tarjeta">
-                    <CardImg top className="imagenes" src={require('../img/organizacion.png')} alt="organizaciones imagen" />
+                    <CardImg className="imagenes" src={require('../img/organizacion.png')} alt="organizaciones imagen" />
                     <CardBody>
-                        <CardTitle className="titulos">Mis Organizaciones</CardTitle>
+                        <CardTitle className="titulos">MIS ORGANIZACIONES</CardTitle>
                         <CardText className="descripcion">Permite ver un listado de sus organizaciones para poder gestionar sus equipos.</CardText>
-                        <Button tag={Link} to="/organizaciones" block>Ir a Mis Organizaciones</Button>
+                        <Button tag={Link} to="/organizaciones" block color="danger">Ir a Mis Organizaciones</Button>
                     </CardBody>
                 </Card>
                 <Card className="tarjeta">
-                    <CardImg top className="imagenes" src={require('../img/perfil.png')} alt="perfil imagen" />
+                    <CardImg className="imagenes" src={require('../img/perfil.png')} alt="perfil imagen" />
                     <CardBody>
-                        <CardTitle className="titulos">Mi Perfil</CardTitle>
+                        <CardTitle className="titulos">MI PERFIL</CardTitle>
                         <CardText className="descripcion">Permite ver sus datos personales en la plataforma y modificarlos.</CardText>
-                        <Button tag={Link} to="/miperfil" block>Ir a Mi Perfil</Button>
+                        <Button tag={Link} to="/miperfil" block color="danger">Ir a Mi Perfil</Button>
                     </CardBody>
                 </Card>
                 <Card className="tarjeta">
-                    <CardImg top className="imagenes" src={require('../img/reportes.png')} alt="reportes imagen" />
+                    <CardImg className="imagenes" src={require('../img/reportes.png')} alt="reportes imagen" />
                     <CardBody>
-                        <CardTitle className="titulos">Reportes</CardTitle>
+                        <CardTitle className="titulos">REPORTES</CardTitle>
                         <CardText className="descripcion">Permite ver reportes de la plataforma.</CardText>
-                        <Button tag={Link} to="/reportes" block>Ir a Reportes</Button>
+                        <Button tag={Link} to="/reportes" block color="danger">Ir a Reportes</Button>
                     </CardBody>
                 </Card>
                 </CardGroup>

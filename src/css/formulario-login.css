@@ -1,6 +1,6 @@
 .formulario-login{
     width: 100%;
-    max-width: 500px;
+    max-width: 100vw;
     padding: 15px;
     margin: auto;
     height: 100%;
@@ -9,3 +9,9 @@
     color: #f34573;
 }
 
+.contenedor-formulario{
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    align-self: center;
+}

@@ -1,4 +1,4 @@
-.pantallaBienvenida{
+.pantallaReportes{
     width: 100%;
     max-width: 100vw;
     padding: 15px;
@@ -7,22 +7,23 @@
     box-sizing: border-box;
     background-color: #d7f7f5;
     color: #f34573;
+    text-align: center;
 }
 
-.titulos{
+.titulo{
     color: #2a6171;
     background-color: #e8fdff;
     text-align: center;
     font-weight: bolder;
 }
 
-.descripcion{
+.descrip{
     color: #2a6171;
     background-color: #e8fdff;
     font-weight: bold;
 }
 
-.tarjeta{
+.tarj{
     background-color: #e8fdff;
     width: 100%;
     max-width: 300px;
@@ -32,14 +33,13 @@
     box-sizing: border-box;
 }
 
-.imagenes{
+.imagen{
     height: 30vh;
     width: 100%;
     background-color: #aa79a6;
     border-radius: 50%;
 }
 
-.titulo-home{
+.titulo-reportes{
     padding-bottom: 50px;
-    text-align: center;
 }

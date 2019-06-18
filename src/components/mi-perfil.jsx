@@ -75,7 +75,7 @@ class MiPerfil extends Component {
                 <BarraNavegacion/>
                 <div className="contenedor-perfil">
                 <img src={this.state.foto_perfil} alt="PROFILE PIC" className="center"></img>
-                <Form>
+                <Form className="contenedor-formulario">
                   <FormGroup>
                     <Label className="font-weight-bold">Nombre</Label>
                     <Input type="text" name="nombre" value={this.state.nombre} onChange={this.handleChange}></Input>
@@ -86,8 +86,8 @@ class MiPerfil extends Component {
                   </FormGroup>
                   <Label className="font-weight-bold"> Email </Label>
                   <h3> {this.state.email} </h3>
+                  <Button className="btn-block mt-3" block size="lg" color="success" onClick={this.modificarPerfil}>Modificar Perfil</Button>
                 </Form>
-                <Button className="btn-block mt-3" block size="lg" color="success" onClick={this.modificarPerfil}>Modificar Perfil</Button>
                 </div>
             </React.Fragment>
           );

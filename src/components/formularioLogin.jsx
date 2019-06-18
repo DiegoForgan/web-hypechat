@@ -60,8 +60,9 @@ class FormularioLogin extends Component {
         return (
           <React.Fragment>
             <TituloDeLaApp/>
+            <div className="formulario-login">
             {this.state.mostrarModal && (<ModalErrorLogin/>)}
-            <Form className="formulario-login" onSubmit={this.loguearse}> 
+            <Form className="contenedor-formulario" onSubmit={this.loguearse}> 
               <FormGroup>
                 <Label className="font-weight-bold">Email</Label>
                 <Input name="email" type="email" value={this.state.email}  
@@ -77,6 +78,7 @@ class FormularioLogin extends Component {
               <Button className="btn-block mt-3" block size="lg" color="success" onClick={this.loguearse} disabled={!this.fomularioValido()}>Ingresar</Button>
               <Button  tag={Link} to="/registro" className="btn-block mt-3" block size="lg" color="warning">Registrarse</Button>
             </Form>
+            </div>
           </React.Fragment>
           );
     }

@@ -1,9 +1,8 @@
 .titulo-pagina-web{
     width: 100%;
-    max-width: 500px;
+    max-width: 100vw;
     padding: 15px;
     margin: auto;
-    height: 100%;
     text-align: center;
     background-color: #d7f7f5;
     color: #2a6171;
@@ -11,6 +10,6 @@
 }
 
 .logo-hypechat{
-    width: 50%;
-    height: 50%;
+    width: 10%;
+    height: 10%;
 }
