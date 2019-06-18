@@ -74,6 +74,7 @@ class MiPerfil extends Component {
             <React.Fragment>
                 <BarraNavegacion/>
                 <div className="contenedor-perfil">
+                <h1>TUS DATOS SON:</h1>
                 <img src={this.state.foto_perfil} alt="PROFILE PIC" className="center"></img>
                 <Form className="contenedor-formulario">
                   <FormGroup>

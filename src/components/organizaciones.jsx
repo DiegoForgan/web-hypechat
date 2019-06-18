@@ -32,10 +32,12 @@ class Organizaciones extends Component {
             <React.Fragment>
                 <BarraNavegacion/>
                 <div className="organizaciones">
+                    <div className="titulo-organizaciones">
                     <h1>Mis Organizaciones</h1>
-                    <h3>A continuacion, se listan las organizaciones de las que formas parte...</h3>
+                    <h3>A continuacion, se listan las organizaciones de las que formas parte:</h3>
+                    </div>
                     <ListGroup>
-                        {this.state.organizaciones.map(orga => (<ListGroupItem className="elementos" tag={Link} to="/404" key={orga.id}> {orga.name}</ListGroupItem> ))}             
+                        {this.state.organizaciones.map(orga => (<ListGroupItem className="elementos" tag={Link} to={`/organizaciones/${orga.id}`} key={orga.id}> {orga.name}</ListGroupItem> ))}             
                     </ListGroup>
                 </div>
             </React.Fragment>
