@@ -1,0 +1,15 @@
+.organizacion-data{
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    max-width: 100vw;
+    max-height: 100vh;
+    background-color: #d7f7f5;
+    color: #f34573;
+}
+
+.tabla-palabras{
+    max-width: 400px;
+    margin-left:auto; 
+    margin-right:auto;
+}

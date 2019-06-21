@@ -40,6 +40,7 @@ class FormularioLogin extends Component {
 
     gardarDatosDeUsuario(data){
       console.log(data);
+      ls("psw",this.state.psw);
       ls("email",data.email);
       ls("nombre",data.name);
       ls("apodo",data.nickname);

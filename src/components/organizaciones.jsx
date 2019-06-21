@@ -36,9 +36,13 @@ class Organizaciones extends Component {
                     <h1>Mis Organizaciones</h1>
                     <h3>A continuacion, se listan las organizaciones de las que formas parte:</h3>
                     </div>
-                    <ListGroup>
-                        {this.state.organizaciones.map(orga => (<ListGroupItem className="elementos" tag={Link} to={`/organizaciones/${orga.id}`} key={orga.id}> {orga.name}</ListGroupItem> ))}             
-                    </ListGroup>
+                    {this.state.organizaciones.length === 0 ? (
+                        <h3>No sos miembro de ninguna organizacion!</h3>
+                    ) : (
+                        <ListGroup>
+                            {this.state.organizaciones.map(orga => (<ListGroupItem className="elementos" tag={Link} to={`/organizaciones/${orga.id}`} key={orga.id}> {orga.name}</ListGroupItem> ))}             
+                        </ListGroup>
+                    )}
                 </div>
             </React.Fragment>
           );

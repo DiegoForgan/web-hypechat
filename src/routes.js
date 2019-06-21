@@ -8,13 +8,15 @@ import Reportes from './components/reportes';
 import Registro from './components/registro';
 import NotFound from './components/not-found';
 import DetalleOrganizacion from './components/DetalleOrganizacion';
+import PalabrasProhibidas from "./components/palabrasProhibidas";
 
 export default () =>
   <Switch>
     <Route path="/" exact component={FormularioLogin} />
     <Route path="/home" exact component={Home}/>
     <Route path="/organizaciones" exact component={Organizaciones}/>
-    <Route path="/organizaciones/:id_orga" component={DetalleOrganizacion}/>
+    <Route path="/organizaciones/:id_orga" exact component={DetalleOrganizacion}/>
+    <Route path="/organizaciones/:id_orga/palabrasProhibidas" exact component={PalabrasProhibidas}/>
     <Route path="/reportes" exact component={Reportes}/>
     <Route path="/miperfil" exact component={MiPerfil}/>
     <Route path="/registro" exact component={Registro}/>
