@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import TituloDeLaApp from './titulo';
+import ModalApp from './modal-app';
 import '../css/formulario-registro.css';
 import axios from 'axios';
 
@@ -16,10 +17,11 @@ class Registro extends Component {
           resp1: '',
           preg2: '',
           resp2: '',
-          mostrarModal: false
+          isOpen: false
         };
         this.handleChange = this.handleChange.bind(this);
         this.registrar = this.registrar.bind(this);
+        this.toggleModal = this.toggleModal.bind(this);
       }
 
     registrar(){
@@ -35,15 +37,12 @@ class Registro extends Component {
       })
       //Recordar que definiendo las funciones asi puedo usar el THIS.SETSTATE bien
       .then((response) => {
-        console.log(response);
-        console.log(this.state)
-        alert("REGISTRO EXITOSO!");
         this.props.history.push('/');
       })
       .catch((error) => {
         console.log(error);
         console.log(this.state);
-        alert('HUBO UN ERROR!');
+        this.toggleModal();
       });
     }
 
@@ -51,6 +50,12 @@ class Registro extends Component {
        this.setState({
           [e.target.name] : e.target.value
       });
+    }
+
+    toggleModal = () => {
+        this.setState({
+          isOpen: !this.state.isOpen
+        });
     }
 
     formularioValido(){
@@ -63,6 +68,11 @@ class Registro extends Component {
             <React.Fragment>
                 <TituloDeLaApp/>
                 <div className="formulario-registro">
+                <ModalApp show={this.state.isOpen}
+                onClose={this.toggleModal}
+                titulo="Registro Fallido!">
+                    El registro fallo!. Intenta nuevamente en un rato!.
+                </ModalApp>
                 <Form className="contenedor-formulario">
                     <FormGroup>
                         <Label className="font-weight-bold">Email</Label>

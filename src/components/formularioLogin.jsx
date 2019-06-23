@@ -4,7 +4,7 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import axios from 'axios';
 import TituloDeLaApp from './titulo';
 import { Link } from 'react-router-dom';
-import ModalErrorLogin from './modal-error-login';
+import ModalApp from './modal-app';
 import ls from 'local-storage';
 
 
@@ -15,10 +15,11 @@ class FormularioLogin extends Component {
       this.state = {
         email: '',
         psw: '',
-        mostrarModal: false
+        isOpen: false
       };
       this.handleChange = this.handleChange.bind(this);
       this.loguearse = this.loguearse.bind(this);
+      this.toggleModal = this.toggleModal.bind(this);
     }
 
     loguearse(){
@@ -33,13 +34,11 @@ class FormularioLogin extends Component {
       })
       .catch((error) => {
         console.log(error);
-        console.log(this.state);
-        this.setState({mostrarModal: true});
+        this.toggleModal();
       });
     }
 
     gardarDatosDeUsuario(data){
-      console.log(data);
       ls("psw",this.state.psw);
       ls("email",data.email);
       ls("nombre",data.name);
@@ -57,12 +56,23 @@ class FormularioLogin extends Component {
       return this.state.email.length > 0 && this.state.psw.length >= 8;
     }
 
+
+    toggleModal = () => {
+      this.setState({
+        isOpen: !this.state.isOpen
+      });
+    }
+
     render() { 
         return (
           <React.Fragment>
             <TituloDeLaApp/>
             <div className="formulario-login">
-            {this.state.mostrarModal && (<ModalErrorLogin/>)}
+            <ModalApp show={this.state.isOpen}
+              onClose={this.toggleModal}
+              titulo="Error de Login">
+              El usuario ingresado o la contraseña son incorrectos!. Por favor intente nuevamente.
+            </ModalApp>
             <Form className="contenedor-formulario" onSubmit={this.loguearse}> 
               <FormGroup>
                 <Label className="font-weight-bold">Email</Label>

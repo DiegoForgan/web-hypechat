@@ -32,3 +32,13 @@ h3{
 .titulo-organizaciones{
     padding-bottom: 50px;
 }
+
+.botones-palabras{
+    padding: 20px;
+}
+
+.boton-palabras{
+    margin: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
