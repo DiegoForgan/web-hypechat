@@ -21,7 +21,7 @@ class Reportes extends Component {
                     <CardBody>
                         <CardTitle className="titulo">Usuarios Registrados</CardTitle>
                         <CardText className="descrip">Permite ver los usuarios que estan registrados en el sistema.</CardText>
-                        <Button tag={Link} to="/notfound" block color="warning">Ver usuarios registrados</Button>
+                        <Button tag={Link} to="/reportes/usuariosRegistrados" block color="warning">Ver usuarios registrados</Button>
                     </CardBody>
                 </Card>
                 <Card className="tarj">
@@ -29,7 +29,7 @@ class Reportes extends Component {
                     <CardBody>
                         <CardTitle className="titulo">Mensajes Enviados</CardTitle>
                         <CardText className="descrip">Permite ver la cantidad de mensajes que fueron enviados en el sistema.</CardText>
-                        <Button tag={Link} to="/notfound" block color="warning">Ir Mensajes Enviados</Button>
+                        <Button tag={Link} to="/reportes/mensajesEnviados" block color="warning">Ver Mensajes Enviados</Button>
                     </CardBody>
                 </Card>
                 </CardGroup>

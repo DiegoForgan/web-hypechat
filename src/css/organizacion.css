@@ -6,10 +6,23 @@
     max-height: 100vh;
     background-color: #d7f7f5;
     color: #f34573;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
 }
 
 .tabla-palabras{
     max-width: 400px;
     margin-left:auto; 
     margin-right:auto;
+}
+
+.contenedor-de-datos{
+    padding: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.fila-datos{
+    padding: 20px;
 }

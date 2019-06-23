@@ -69,9 +69,6 @@ class BarraNavegacion extends Component {
                       <DropdownItem tag={Link} to="/miperfil">
                         Mi cuenta
                       </DropdownItem>
-                      <DropdownItem>
-                        Configuracion
-                      </DropdownItem>
                       <DropdownItem divider />
                       <DropdownItem tag={Link} to="/" onClick={this.borrarDatosLocales}>
                         Log Out 
