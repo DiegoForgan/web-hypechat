@@ -10,6 +10,7 @@ class UsuariosRegistrados extends Component {
     constructor(props){
         super(props);
         this.state = {
+            aux: false,
             meses: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
             chartData:{
                 labels: [],
@@ -41,7 +42,9 @@ class UsuariosRegistrados extends Component {
                 this.state.chartData.labels.push(this.state.meses[dato.month - 1]);
                 this.state.chartData.datasets[0].data.push(dato.total);
             }
+            //aca deberia hacer un setState para que se vea el grafico.
             console.log(this.state);
+            this.setState({aux: true});
         })
         .catch((error) => {
             console.log(error);

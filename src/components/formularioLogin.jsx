@@ -44,6 +44,7 @@ class FormularioLogin extends Component {
       ls("nombre",data.name);
       ls("apodo",data.nickname);
       ls("token",data.token);
+      ls("foto_perfil",data.photo);
     }
 
     handleChange(e) {

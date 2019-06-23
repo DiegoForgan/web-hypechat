@@ -13,7 +13,7 @@ class MiPerfil extends Component {
           psw: '',
           nombre: ls("nombre"),
           apodo: ls("apodo"),
-          foto_perfil: 'https://res.cloudinary.com/teepublic/image/private/s--VJddS-WL--/t_Preview/b_rgb:ffffff,c_limit,f_jpg,h_630,q_90,w_630/v1455956068/production/designs/425835_1.jpg',
+          foto_perfil: ls("foto_perfil"),
         };
         this.handleChange = this.handleChange.bind(this);
         this.modificarPerfil = this.modificarPerfil.bind(this);
