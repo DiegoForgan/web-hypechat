@@ -99,21 +99,18 @@ class Miembros extends Component {
                     <Table size="sm" bordered dark>
                     <thead>
                         <tr>
-                        <th>#</th>
                         <th>Usuario</th>
                         <th>Rol</th>
                      </tr>
                     </thead>
                     <tbody>
                         { this.state.duenios.map((duenio,index) =>(<tr key={index}>
-                            <th scope="row">{index+1}</th>
                             <td>{duenio}</td>
                             <td>Owner</td>
                         </tr>))}
                     </tbody>
                     <tbody>
                         { this.state.moderadores.map((moderador,index) =>(<tr key={this.state.duenios.length + index + 1}>
-                            <th scope="row">{this.state.duenios.length + index + 1}</th>
                             <td>{moderador}</td>
                             <td>Moderador</td>
                         </tr>))}
@@ -125,7 +122,6 @@ class Miembros extends Component {
                                     (null) :
                                     (
                                         <React.Fragment>
-                                        <th scope="row">{this.state.duenios.length + this.state.moderadores.length + index + 1}</th>
                                         <td>{miembro}</td>
                                         <td>Sin Rol</td>
                                         </React.Fragment>
