@@ -43,9 +43,9 @@ class Miembros extends Component {
     ascenderMiembro(){
         const URL = 'https://secure-plateau-18239.herokuapp.com/moderator'
         axios.put(URL, {
-        token: ls("token"),
-        organizationID: ls("id_orga"),
-        userEmail: this.state.miembroCandidato,
+            token: ls("token"),
+            organizationID: ls("id_orga"),
+            userEmail: this.state.miembroCandidato,
       })
       //Recordar que definiendo las funciones asi puedo usar el THIS.SETSTATE bien
       .then((response) => {
@@ -60,9 +60,23 @@ class Miembros extends Component {
     }
 
     degradarMiembro(){
-        console.log('vas a degradar a un miembro');
-        console.log(this.state.miembroCandidato);
+        const URL = 'https://secure-plateau-18239.herokuapp.com/revokeModerator'
+        axios.put(URL, {
+            token: ls("token"),
+            organizationID: ls("id_orga"),
+            userEmail: this.state.miembroCandidato,
+      })
+      //Recordar que definiendo las funciones asi puedo usar el THIS.SETSTATE bien
+      .then((response) => {
+        console.log(response);
+        var index = this.state.moderadores.indexOf(this.state.miembroCandidato);
+        this.setState({moderadores: this.state.moderadores.filter((elemento, i) => i !== index)});
         this.setState({miembroCandidato: ''});
+      })
+      .catch((error) => {
+        console.log(error);
+        this.setState({miembroCandidato: ''});
+      });
     }
 
     eliminarMiembro(){
