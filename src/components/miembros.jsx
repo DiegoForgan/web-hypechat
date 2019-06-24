@@ -5,6 +5,7 @@ import '../css/organizacion.css';
 import ls from 'local-storage';
 import axios from 'axios';
 import { Table, Input, InputGroup, Button, InputGroupAddon } from 'reactstrap';
+import AlertApp from './alerta-app';
 
 class Miembros extends Component {
     constructor(props){
@@ -14,16 +15,32 @@ class Miembros extends Component {
             miembros: [],
             moderadores: [],
             miembroCandidato: '',
+            mostrarAlerta: false,
+            colorAlerta: "success",
+            mensajeAlerta: "El usuario se agrego correctamente!",
         };
         this.handleChange = this.handleChange.bind(this);
         this.ascenderMiembro = this.ascenderMiembro.bind(this);
         this.degradarMiembro = this.degradarMiembro.bind(this);
+        this.agregarMiembro = this.agregarMiembro.bind(this);
         this.eliminarMiembro = this.eliminarMiembro.bind(this);
     }
 
+    onShowAlert = ()=>{
+        this.setState({mostrarAlerta:true},()=>{
+          window.setTimeout(()=>{
+            this.setState({mostrarAlerta:false})
+          },2000)
+        });
+      }
+
+    configAlertParams = (color,mensaje)=>{
+        this.setState({colorAlerta: color, mensajeAlerta: mensaje});
+      }
+
     componentDidMount(){
         const URL = 'https://secure-plateau-18239.herokuapp.com/organization/'+ls("token")+'/'+ls("id_orga");
-        axios.get(URL)
+        axios.get(URL,{})
         .then((response) => {
             console.log(response);
             this.setState({ duenios: response.data.organization.owner, moderadores: response.data.organization.moderators, miembros: response.data.organization.members });
@@ -52,6 +69,8 @@ class Miembros extends Component {
         console.log(response);
         this.setState({moderadores: [...this.state.moderadores,this.state.miembroCandidato]});
         this.setState({miembroCandidato: ''});
+        this.configAlertParams("success","El usuario a sido ASCENDIDO correctamente");
+        this.onShowAlert();
       })
       .catch((error) => {
         console.log(error);
@@ -72,17 +91,60 @@ class Miembros extends Component {
         var index = this.state.moderadores.indexOf(this.state.miembroCandidato);
         this.setState({moderadores: this.state.moderadores.filter((elemento, i) => i !== index)});
         this.setState({miembroCandidato: ''});
+        this.configAlertParams("warning","El usuario ha sido DEGRADADO correctamente!");
+        this.onShowAlert();
       })
       .catch((error) => {
         console.log(error);
         this.setState({miembroCandidato: ''});
       });
     }
+    
+    agregarMiembro(){
+        const URL = 'https://secure-plateau-18239.herokuapp.com/organization/user';
+        axios.post(URL,{
+            token: ls("token"),
+            idOrganization: ls("id_orga"),
+            email: this.state.miembroCandidato,
+            psw: ls("psw_orga"),
+        })
+        .then((response) => {
+            console.log(response);
+            this.setState({miembros: [...this.state.miembros,this.state.miembroCandidato], mostrarAlerta: true});
+            this.setState({miembroCandidato: ''});
+            this.configAlertParams("success","El usuario ha sido AGREGADO correctamente!");
+            this.onShowAlert();
+        })
+        .catch((error) => {
+            console.log(error.response);
+            if (error.response.status === 401) {
+                this.configAlertParams("danger","Ese email no pertenece a un usuario del sistema!");
+                this.onShowAlert();
+            }
+            this.setState({miembroCandidato: ''});
+        });
+    }
 
     eliminarMiembro(){
-        console.log('vas a eliminar a un miembro');
-        console.log(this.state.miembroCandidato);
+        const URL = 'https://secure-plateau-18239.herokuapp.com/member/'+ls("token")+'/'+ls("id_orga")+"/"+this.state.miembroCandidato;
+        axios.delete(URL)
+      //Recordar que definiendo las funciones asi puedo usar el THIS.SETSTATE bien
+      .then((response) => {
+        console.log(response);
+        var indiceMiembro = this.state.miembros.indexOf(this.state.miembroCandidato);
+        var indiceModerador = this.state.moderadores.indexOf(this.state.miembroCandidato);
+        this.setState({miembros: this.state.miembros.filter((elemento, i) => i !== indiceMiembro)});
+        if ( indiceModerador !== -1) {
+            this.setState({moderadores: this.state.moderadores.filter((elemento, i) => i !== indiceModerador)});    
+        }
         this.setState({miembroCandidato: ''});
+        this.configAlertParams("warning","El usuario ha sido ELIMINADO correctamente!");
+        this.onShowAlert();
+      })
+      .catch((error) => {
+        console.log(error);
+        this.setState({miembroCandidato: ''});
+      });
     }
 
     puedoAscender(){
@@ -109,6 +171,12 @@ class Miembros extends Component {
         (this.state.duenios.includes(ls("email"))  ||
         //Soy moderador y el usuario a eliminar no es moderador
         (this.state.moderadores.includes(ls("email"))  && !this.state.moderadores.includes(this.state.miembroCandidato)));
+    }
+
+    puedoAgregar(){
+        //El usuario a agregar no pertenece a la organizacion
+        var re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        return (!this.state.miembros.includes(this.state.miembroCandidato)) && (re.test(String(this.state.miembroCandidato).toLowerCase()));
     }
 
     render() { 
@@ -153,16 +221,22 @@ class Miembros extends Component {
                     </tbody>
                     </Table>)}
                     </div>
-                    <div>
+                    <div className="gestion-usuarios">
                     <InputGroup>
-                    <Input name="miembroCandidato" type="email" placeholder="Ingrese el email del miembro a degradar/ascender..." onChange={this.handleChange} value={this.state.miembroCandidato}/>
+                    <Input name="miembroCandidato" type="email" placeholder="Ingrese el email de un usuario..." onChange={this.handleChange} value={this.state.miembroCandidato}/>
                     <InputGroupAddon addonType="append">
-                        <Button color="success"  disabled={!this.puedoAscender()} onClick={this.ascenderMiembro}>Ascender Miembro</Button>
-                        <Button color="warning" disabled={!this.puedoDegradar()} onClick={this.degradarMiembro}>Degradar Miembro</Button>
-                        <Button color="danger" disabled={!this.puedoEliminar()} onClick={this.eliminarMiembro}>Eliminar Miembro</Button>
+                        <Button color="primary"  disabled={!this.puedoAscender()} onClick={this.ascenderMiembro}>ASCENDER MIEMBRO</Button>
+                        <Button color="warning" disabled={!this.puedoDegradar()} onClick={this.degradarMiembro}>DEGRADAR MIEMBRO</Button>
+                        <Button color="success"  disabled={!this.puedoAgregar()} onClick={this.agregarMiembro}>AGREGAR MIEMBRO</Button>
+                        <Button color="danger" disabled={!this.puedoEliminar()} onClick={this.eliminarMiembro}>ELIMINAR MIEMBRO</Button>
                     </InputGroupAddon>
                     </InputGroup>
-                </div>  
+                </div>
+                <div>
+                    <AlertApp color={this.state.colorAlerta} show={this.state.mostrarAlerta}>
+                        {this.state.mensajeAlerta}
+                    </AlertApp>
+                </div>
             </div>
             </React.Fragment>
          );

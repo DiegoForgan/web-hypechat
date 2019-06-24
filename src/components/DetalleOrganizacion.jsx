@@ -23,6 +23,7 @@ class DetalleOrganizacion extends Component {
         axios.get(URL)
         .then((response) => {
             console.log(response);
+            ls("psw_orga",response.data.organization.psw);
             this.setState({nombre: response.data.organization.name, duenios: response.data.organization.owner, moderadores: response.data.organization.moderators,
             mensajeBienvenida: response.data.organization.welcome});
           })

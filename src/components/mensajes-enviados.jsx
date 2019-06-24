@@ -27,7 +27,7 @@ class MensajesEnviados extends Component {
         //const URL = 'https://secure-plateau-18239.herokuapp.com/messages/' + ls("token");
         //axios.get(URL)
         //.then((response) => {
-            console.log(response);
+            
             var response = {data:{
                     total: 10,
                     organizations:[
@@ -42,7 +42,7 @@ class MensajesEnviados extends Component {
                     ]
                 }
             }
-            
+            console.log(response);
             var estadoActual = {labels: ["Total Enviados"], datasets: [{
                     label: "Cantidad de Mensajes Enviados",
                     data:[response.data.total],
