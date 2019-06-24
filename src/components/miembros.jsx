@@ -59,7 +59,6 @@ class Miembros extends Component {
     }
 
     puedoAscender(){
-        console.log()
         //ES un usuario que esta en la organizacion y no es el Dueño
         return (this.state.miembros.includes(this.state.miembroCandidato) && !this.state.duenios.includes(this.state.miembroCandidato)) &&
         //Yo soy el duenio o un moderador 
