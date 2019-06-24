@@ -13,6 +13,7 @@ import Miembros from './components/miembros';
 import Canales from './components/canales';
 import UsuariosRegistrados from './components/usuarios-registrados';
 import mensajesEnviados from './components/mensajes-enviados';
+import DetalleCanal from './components/DetalleCanal';
 
 export default () =>
   <Switch>
@@ -23,6 +24,7 @@ export default () =>
     <Route path="/organizaciones/:id_orga/palabrasProhibidas" exact component={PalabrasProhibidas}/>
     <Route path="/organizaciones/:id_orga/miembros" exact component={Miembros}/>
     <Route path="/organizaciones/:id_orga/canales" exact component={Canales}/>
+    <Route path="/organizaciones/:id_orga/canales/:id_canal" exact component={DetalleCanal}/>
     <Route path="/reportes" exact component={Reportes}/>
     <Route path="/reportes/usuariosRegistrados" exact component={UsuariosRegistrados}/>
     <Route path="/reportes/mensajesEnviados" exact component={mensajesEnviados}/>
