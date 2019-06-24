@@ -72,7 +72,7 @@ class Miembros extends Component {
         //El usuario a degradar pertenece a la organizacion y no es el Dueño
         return (this.state.miembros.includes(this.state.miembroCandidato) && !this.state.duenios.includes(this.state.miembroCandidato)) &&
         //Yo soy el dueño O
-        (this.state.duenios.includes(ls("email")));
+        (this.state.duenios.includes(ls("email"))) && this.state.moderadores.includes(this.state.miembroCandidato);
     }
 
     puedoEliminar(){
