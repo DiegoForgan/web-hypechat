@@ -91,7 +91,7 @@ class Miembros extends Component {
             <BarraNavegacion/>
             <BarraOrganizaciones/>
             <div className="organizacion-data"> 
-                <h1>Pagina de Miembros de una organizacion</h1>
+                <h1>Miembros de la organización:</h1>
                 <div className="tabla-palabras">
                 {(this.state.miembros.length === 0) ? (
                     <p>No Hay miembros en la organizacion!</p>
