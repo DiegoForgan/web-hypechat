@@ -41,9 +41,22 @@ class Miembros extends Component {
     }
 
     ascenderMiembro(){
-        console.log('vas a ascender a un miembro');
-        console.log(this.state.miembroCandidato);
+        const URL = 'https://secure-plateau-18239.herokuapp.com/moderator'
+        axios.put(URL, {
+        token: ls("token"),
+        organizationID: ls("id_orga"),
+        userEmail: this.state.miembroCandidato,
+      })
+      //Recordar que definiendo las funciones asi puedo usar el THIS.SETSTATE bien
+      .then((response) => {
+        console.log(response);
+        this.setState({moderadores: [...this.state.moderadores,this.state.miembroCandidato]});
         this.setState({miembroCandidato: ''});
+      })
+      .catch((error) => {
+        console.log(error);
+        this.setState({miembroCandidato: ''});
+      });
     }
 
     degradarMiembro(){
@@ -107,14 +120,10 @@ class Miembros extends Component {
                             <td>{duenio}</td>
                             <td>Owner</td>
                         </tr>))}
-                    </tbody>
-                    <tbody>
                         { this.state.moderadores.map((moderador,index) =>(<tr key={this.state.duenios.length + index + 1}>
                             <td>{moderador}</td>
                             <td>Moderador</td>
                         </tr>))}
-                    </tbody>
-                    <tbody>
                         {this.state.miembros.map((miembro,index) => (<tr key={this.state.duenios.length + this.state.moderadores.length + index + 1}>
                             {
                                ((this.state.duenios.includes(miembro)) || (this.state.moderadores.includes(miembro))) ? 
