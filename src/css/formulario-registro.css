@@ -1,0 +1,21 @@
+.formulario-registro{
+    width: 100%;
+    max-width: 100vw;
+    padding: 15px;
+    margin: auto;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: #d7f7f5;
+    color: #f34573;
+}
+
+.sugerencias{
+    color: #2a6171;
+}
+
+.contenedor-formulario{
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    align-self: center;
+}

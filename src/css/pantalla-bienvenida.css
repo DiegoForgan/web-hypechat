@@ -1,0 +1,45 @@
+.pantallaBienvenida{
+    width: 100%;
+    max-width: 100vw;
+    padding: 15px;
+    margin: auto;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: #d7f7f5;
+    color: #f34573;
+}
+
+.titulos{
+    color: #2a6171;
+    background-color: #e8fdff;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.descripcion{
+    color: #2a6171;
+    background-color: #e8fdff;
+    font-weight: bold;
+}
+
+.tarjeta{
+    background-color: #e8fdff;
+    width: 100%;
+    max-width: 300px;
+    padding: 15px;
+    margin: auto;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.imagenes{
+    height: 30vh;
+    width: 100%;
+    background-color: #aa79a6;
+    border-radius: 50%;
+}
+
+.titulo-home{
+    padding-bottom: 50px;
+    text-align: center;
+}
