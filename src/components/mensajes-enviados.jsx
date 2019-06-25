@@ -35,6 +35,7 @@ class MensajesEnviados extends Component {
 
             for (let indiceOrganizacion = 0; indiceOrganizacion < arrayOrganizaciones.length; indiceOrganizacion++) {
                 const organizacion = arrayOrganizaciones[indiceOrganizacion];
+                if (organizacion === {}) continue;
                 this.setState({chartData: {
                     labels: [...this.state.chartData.labels, "ORGANIZACION " + organizacion.name],
                     datasets: [
