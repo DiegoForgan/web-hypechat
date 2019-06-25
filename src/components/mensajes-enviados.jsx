@@ -24,6 +24,14 @@ class MensajesEnviados extends Component {
         }
     };
 
+    isEmpty(obj) {
+        for(var key in obj) {
+            if(obj.hasOwnProperty(key))
+                return false;
+        }
+        return true;
+    }
+
     //{total: 0, organizations: [{total: 0, name: "nombre", channels: [{total: 0, name:"canal"}]}]}
     ///messages/:token
     componentDidMount(){
@@ -35,7 +43,7 @@ class MensajesEnviados extends Component {
 
             for (let indiceOrganizacion = 0; indiceOrganizacion < arrayOrganizaciones.length; indiceOrganizacion++) {
                 const organizacion = arrayOrganizaciones[indiceOrganizacion];
-                if (organizacion === {}) continue;
+                if (this.isEmpty(organizacion)) continue;
                 this.setState({chartData: {
                     labels: [...this.state.chartData.labels, "ORGANIZACION " + organizacion.name],
                     datasets: [
