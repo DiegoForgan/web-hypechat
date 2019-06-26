@@ -98,7 +98,7 @@ class MensajesEnviados extends Component {
                 <ModalApp show={this.state.isOpen}
                 onClose={this.toggleModal}
                 titulo="Error de Reportes">
-                    Ocurrio un error al querer ver el reporte!
+                    Ocurrio un error al querer ver el reporte!. Debes ser tener los permisos necesarios en alguna organizacion!.
                 </ModalApp>
                 <div className="organizacion-data"> 
                 <h1>Reporte: Mensajes Enviados</h1>
