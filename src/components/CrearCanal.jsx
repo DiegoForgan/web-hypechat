@@ -79,7 +79,7 @@ class CrearCanal extends Component {
         if (this.state.esPrivado) {
             privacidad = 1;
         }
-        const URL = "https://secure-plateau-18239.herokuapp.com/channel"
+        const URL = "https://secure-plateau-18239.herokuapp.com/channel";
         axios.post(URL,{
             name: this.state.nombreCanal,
             id: ls("id_orga"),
