@@ -53,6 +53,10 @@ class Canales extends Component {
         axios.delete(URL)
         .then((response) => {
             console.log(response);
+            this.setState({
+                canales: response.data.channels,
+                canalCandidato: "",
+            })
         })
         .catch((error) => {
             console.log(error);
