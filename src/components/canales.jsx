@@ -4,7 +4,7 @@ import axios from 'axios';
 import BarraNavegacion from './barra-navegacion';
 import BarraOrganizaciones from './barra-organizaciones';
 import '../css/organizacion.css';
-import { ListGroup, ListGroupItem} from 'reactstrap';
+import { ListGroup, ListGroupItem, Button} from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 class Canales extends Component {
@@ -46,7 +46,8 @@ class Canales extends Component {
                     {this.state.canales.map((canal,index) => (<ListGroupItem className="elementos" tag={Link} to={`/organizaciones/${ls("id_orga")}/canales/${canal}`} key={index}> {canal}</ListGroupItem> ))}             
                 </ListGroup>
             )}
-            </div>
+            <Button tag={Link} to={`/organizaciones/${ls("id_orga")}/canales/crearCanal`} className="boton-crearCanal" block color="success">CREAR UN CANAL</Button>
+            </div>      
             </React.Fragment>
         );
     }
