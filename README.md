@@ -1,3 +1,16 @@
+## BACKOFFICE DE HYPECHAT
+
+Este es un repositorio que responde a las necesidades de un trabajo practico para la materia "75.52 Taller de Programacion 2" de la Facultad de Ingenieria de la Universidad de Buenos Aires.
+
+Fue desarrollado integramente en REACT, desplegado en Heroku y utiliza las siguientes librerias:
+- Reacstrap (Interfaz Grafica)
+- React Router Dom (Ruteo de la aplicacion entre sus diferentes sitios)
+- React Chart (Armado de graficos en la seccion de reportes)
+
+Contacto:
+- dmforgan89@gmail.com
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
