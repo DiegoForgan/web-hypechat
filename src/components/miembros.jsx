@@ -54,6 +54,7 @@ class Miembros extends Component {
         .then((response) => {
             console.log(response);
             this.setState({ duenios: response.data.organization.owner, moderadores: response.data.organization.moderators, miembros: response.data.organization.members });
+            this.actualizarEstadoPrivilegios();
             console.log(this.state);
         })
         .catch((error) => {
@@ -79,6 +80,7 @@ class Miembros extends Component {
         console.log(response);
         this.setState({moderadores: [...this.state.moderadores,this.state.miembroCandidato]});
         this.setState({miembroCandidato: ''});
+        this.actualizarEstadoPrivilegios();
         this.configAlertParams("success","El usuario a sido ASCENDIDO correctamente");
         this.onShowAlert();
       })
@@ -101,6 +103,7 @@ class Miembros extends Component {
         var index = this.state.moderadores.indexOf(this.state.miembroCandidato);
         this.setState({moderadores: this.state.moderadores.filter((elemento, i) => i !== index)});
         this.setState({miembroCandidato: ''});
+        this.actualizarEstadoPrivilegios();
         this.configAlertParams("warning","El usuario ha sido DEGRADADO correctamente!");
         this.onShowAlert();
       })
@@ -122,6 +125,7 @@ class Miembros extends Component {
             console.log(response);
             this.setState({miembros: [...this.state.miembros,this.state.miembroCandidato], mostrarAlerta: true});
             this.setState({miembroCandidato: ''});
+            this.actualizarEstadoPrivilegios();
             this.configAlertParams("success","El usuario ha sido AGREGADO correctamente!");
             this.onShowAlert();
         })
@@ -148,6 +152,7 @@ class Miembros extends Component {
             this.setState({moderadores: this.state.moderadores.filter((elemento, i) => i !== indiceModerador)});    
         }
         this.setState({miembroCandidato: ''});
+        this.actualizarEstadoPrivilegios();
         this.configAlertParams("warning","El usuario ha sido ELIMINADO correctamente!");
         this.onShowAlert();
       })
