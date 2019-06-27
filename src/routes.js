@@ -15,12 +15,14 @@ import UsuariosRegistrados from './components/usuarios-registrados';
 import mensajesEnviados from './components/mensajes-enviados';
 import DetalleCanal from './components/DetalleCanal';
 import CrearCanal from './components/CrearCanal';
+import CrearOrganizacion from './components/CrearOrganizacion';
 
 export default () =>
   <Switch>
     <Route path="/" exact component={FormularioLogin} />
     <Route path="/home" exact component={Home}/>
     <Route path="/organizaciones" exact component={Organizaciones}/>
+    <Route path="/organizaciones/crearOrganizacion" exact component={CrearOrganizacion}/>
     <Route path="/organizaciones/:id_orga" exact component={DetalleOrganizacion}/>
     <Route path="/organizaciones/:id_orga/palabrasProhibidas" exact component={PalabrasProhibidas}/>
     <Route path="/organizaciones/:id_orga/miembros" exact component={Miembros}/>

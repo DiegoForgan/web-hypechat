@@ -42,7 +42,7 @@ class CrearCanal extends Component {
     }
 
     puedeCrear(){
-        return (this.state.nombreCanal.length >= 4);
+        return (this.state.nombreCanal.length >= 4) && (!this.state.nombreCanal.includes(" "));
     }
 
     esPublico(){
