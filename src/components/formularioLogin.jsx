@@ -87,8 +87,8 @@ class FormularioLogin extends Component {
                 placeholder="Ingrese su contraseña..."
                 onChange={this.handleChange}></Input>
               </FormGroup>
-              <Button className="btn-block mt-3" block size="lg" color="success" onClick={this.loguearse} disabled={!this.fomularioValido()}>Ingresar</Button>
-              <Button  tag={Link} to="/registro" className="btn-block mt-3" block size="lg" color="warning">Registrarse</Button>
+              <Button className="btn-block mt-3" block size="lg" color="success" onClick={this.loguearse} disabled={!this.fomularioValido()}>INGRESAR</Button>
+              <Button  tag={Link} to="/registro" className="btn-block mt-3" block size="lg" color="warning">REGISTRO</Button>
             </Form>
             </div>
           </React.Fragment>
