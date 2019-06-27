@@ -78,7 +78,7 @@ class Canales extends Component {
                     {this.state.canales.map((canal,index) => (<ListGroupItem className="elementos" tag={Link} to={`/organizaciones/${ls("id_orga")}/canales/${canal}`} key={index}> {canal}</ListGroupItem> ))}             
                 </ListGroup>
             )}
-            <Button tag={Link} to={`/organizaciones/${ls("id_orga")}/canales/crearCanal`} className="boton-crearCanal" block color="success">CREAR UN CANAL</Button>
+            <Button tag={Link} to={`/organizaciones/${ls("id_orga")}/canales/crearCanal`} className="boton-crearCanal" block color="success" disabled={!ls("tengoPrivilegios")}>CREAR UN CANAL</Button>
             <InputGroup className="boton-crearCanal">
                 <Input name="canalCandidato" type="text" placeholder="Ingrese el canal a eliminar..." onChange={this.handleChange} value={this.state.canalCandidato}/>
                 <InputGroupAddon addonType="append">

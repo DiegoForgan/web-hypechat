@@ -211,12 +211,12 @@ class DetalleCanal extends Component {
     }
 
     puedoEliminar(){
-        return this.state.miembros.includes(this.state.miembroCandidato) && (this.state.privacidad === "PRIVADO");
+        return ls("tengoPrivilegios") && this.state.miembros.includes(this.state.miembroCandidato) && (this.state.privacidad === "PRIVADO");
     }
 
     puedoInvitar(){
         var re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-        return (re.test(String(this.state.miembroCandidato).toLowerCase())) && (this.state.privacidad === "PRIVADO") && (!this.state.miembros.includes(this.state.miembroCandidato));
+        return ls("tengoPrivilegios") && (re.test(String(this.state.miembroCandidato).toLowerCase())) && (this.state.privacidad === "PRIVADO") && (!this.state.miembros.includes(this.state.miembroCandidato));
     }
 
     invitarMiembro(){
@@ -317,20 +317,20 @@ class DetalleCanal extends Component {
                         <Label className="font-weight-bold">Mensaje de Bienvenida del Canal:</Label>
                         <Input name="msjBienvenida" type="text" placeholder="Escriba el mensaje de Bienvenida del Canal..." value={this.state.msjBienvenida} onChange={this.handleChange}/>
                         <InputGroupAddon addonType="append">
-                            <Button color="info" onClick={this.cambiarBienvenida}>MODIFICAR</Button>
+                            <Button color="info" onClick={this.cambiarBienvenida} disabled={!ls("tengoPrivilegios")}>MODIFICAR</Button>
                         </InputGroupAddon>
                     </FormGroup>
                     <FormGroup>
                         <Label className="font-weight-bold">Descripcion Del Canal:</Label>
                         <Input type="textarea" name="descripcion" value={this.state.descripcion} onChange={this.handleChange}/>
                         <InputGroupAddon addonType="append">
-                            <Button color="info" onClick={this.cambiarDescripcion}>MODIFICAR</Button>
+                            <Button color="info" onClick={this.cambiarDescripcion} disabled={!ls("tengoPrivilegios")}>MODIFICAR</Button>
                         </InputGroupAddon>
                     </FormGroup>
                     {(this.state.privacidad === "PUBLICO") ? 
-                    (<Button color="warning" onClick={this.hacerCanalPrivado}>HACER PRIVADO</Button>)
+                    (<Button color="warning" onClick={this.hacerCanalPrivado} disabled={!ls("tengoPrivilegios")}>HACER PRIVADO</Button>)
                     :
-                    (<Button color="primary" onClick={this.hacerCanalPublico}>HACER PUBLICO</Button>) }
+                    (<Button color="primary" onClick={this.hacerCanalPublico} disabled={!ls("tengoPrivilegios")}>HACER PUBLICO</Button>) }
                     </Form>
                     </Col>
                     <Col>

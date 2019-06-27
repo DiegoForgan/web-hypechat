@@ -66,11 +66,11 @@ class PalabrasProhibidas extends Component {
     }
 
     palabraValidaParaAgregar(){
-        return this.state.palabraNueva.length > 3 && !this.state.palabras.includes(this.state.palabraNueva);
+        return this.state.palabraNueva.length > 3 && !this.state.palabras.includes(this.state.palabraNueva) && ls("tengoPrivilegios");
     }
 
     palabraValidaParaBorrar(){
-        return this.state.palabras.includes(this.state.palabraBorrar);
+        return this.state.palabras.includes(this.state.palabraBorrar) && ls("tengoPrivilegios");
     }
 
     render() { 

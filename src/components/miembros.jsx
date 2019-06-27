@@ -24,6 +24,16 @@ class Miembros extends Component {
         this.degradarMiembro = this.degradarMiembro.bind(this);
         this.agregarMiembro = this.agregarMiembro.bind(this);
         this.eliminarMiembro = this.eliminarMiembro.bind(this);
+        this.actualizarEstadoPrivilegios = this.actualizarEstadoPrivilegios.bind(this);
+    }
+
+    actualizarEstadoPrivilegios(){
+        if(this.state.moderadores.includes(ls("email")) || this.state.duenios.includes(ls("email"))){
+            ls("tengoPrivilegios",true);
+        }
+        else{
+            ls("tengoPrivilegios",false);
+        }
     }
 
     onShowAlert = ()=>{
