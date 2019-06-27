@@ -251,6 +251,10 @@ class DetalleCanal extends Component {
                     this.configAlertParams("warning","NO tiene permiso para agregar a el canal");
                     this.onShowAlert();
                     break;
+                case 406:
+                    this.configAlertParams("danger","NO existe un usuario con ese email en el sistema");
+                    this.onShowAlert();
+                    break;
                 default:
                     break;
             }
