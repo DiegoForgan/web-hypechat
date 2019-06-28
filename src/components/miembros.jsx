@@ -191,7 +191,7 @@ class Miembros extends Component {
     puedoAgregar(){
         //El usuario a agregar no pertenece a la organizacion
         var re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-        return (!this.state.miembros.includes(this.state.miembroCandidato)) && (re.test(String(this.state.miembroCandidato).toLowerCase()));
+        return ls("tengoPrivilegios") && (!this.state.miembros.includes(this.state.miembroCandidato)) && (re.test(String(this.state.miembroCandidato).toLowerCase()));
     }
 
     render() { 
