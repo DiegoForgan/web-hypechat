@@ -36,7 +36,7 @@ class Canales extends Component {
     }
 
     puedoBorrar(){
-        return this.state.canales.includes(this.state.canalCandidato);
+        return this.state.canales.includes(this.state.canalCandidato) && ls("tengoPrivilegios");
     }
 
 
