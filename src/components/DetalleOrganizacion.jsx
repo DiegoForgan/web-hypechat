@@ -26,6 +26,7 @@ class DetalleOrganizacion extends Component {
             ls("psw_orga",response.data.organization.psw);
             this.setState({nombre: response.data.organization.name, duenios: response.data.organization.owner, moderadores: response.data.organization.moderators,
             mensajeBienvenida: response.data.organization.welcome});
+            console.log(ls("tengoPrivilegios"));
             if (this.state.duenios.includes(ls("email")) || (this.state.moderadores.includes(ls("email")))) {
                 ls("tengoPrivilegios",true);
             }else{
